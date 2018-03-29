@@ -1,0 +1,42 @@
+git bash
+
+$ docker run -it -v ^C
+$ pwd
+$ docker run -it -v $(pwd):/app -w /app gcc bash
+$ winpty docker run -it -v $(pwd):/app -w /app gcc bash
+$ winpty docker run -it -v /c/Users/luis.alves/Desktop/ultimo.colorant:/app -w /app gcc bash
+$ winpty docker run -it -v /c/Users/luis.alves/Desktop/ultimo.colorant:/app -w /app gcc bash    
+
+power shelll
+
+PS C:\Users\luis.alves> docker run -it -v /c/Users/luis.alves/Desktop/ultimo.colorant:/app -w /app gcc bash
+PS C:\Users\luis.alves> docker-compose up
+PS C:\Users\luis.alves> dir
+PS C:\Users\luis.alves> cd c:
+PS C:\Users\luis.alves> cd .\Desktop\ultimo.colorant\
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker image ls
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker image ls
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker run -it ultimocolorant_compiler bash
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker run -it ultimocolorant_compiler bash
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker run -it ultimocolorant_compiler bash
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler execute.sh
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler /execute.sh
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler bash
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose down
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compile execute
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler execute
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler bash
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler bash
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose down
+PS C:\Users\luis.alves\Desktop\ultimo.colorant>

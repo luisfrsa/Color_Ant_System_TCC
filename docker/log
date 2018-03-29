@@ -1,0 +1,1471 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+
+PS C:\Users\luis.alves> docker run -it -v /c/Users/luis.alves/Desktop/ultimo.colorant:/app -w /app gcc bash
+root@1f8ef2af9fce:/app# ls -la
+total 1047
+drwxr-xr-x 2 root root   4096 Mar 29 18:54 .
+drwxr-xr-x 1 root root   4096 Mar 29 19:05 ..
+-rwxr-xr-x 1 root root   5803 Mar  3  2017 ant_fixed_k.c
+-rwxr-xr-x 1 root root    512 Oct  4  2016 ant_fixed_k.h
+-rwxr-xr-x 1 root root  22459 Mar  5  2017 color.c
+-rwxr-xr-x 1 root root   4317 Mar  3  2017 color.h
+-rwxr-xr-x 1 root root  85880 Mar  5  2017 colorant
+-rwxr-xr-x 1 root root  18296 Mar  7  2017 colorant.c
+-rwxr-xr-x 1 root root   4144 Mar  3  2017 colorant.h
+-rwxr-xr-x 1 root root   9848 Mar 22 15:23 gmon.out
+-rwxr-xr-x 1 root root 160613 Oct  4  2016 le450_15d.col
+-rwxr-xr-x 1 root root    220 Mar  4  2017 makefile
+-rwxr-xr-x 1 root root      0 Mar  3  2017 saida
+-rwxr-xr-x 1 root root    626 Oct  4  2016 seeds.sh
+-rwxr-xr-x 1 root root  31180 Oct  4  2016 seeds.txt
+-rwxr-xr-x 1 root root  18956 Mar  4  2017 tabucol.c
+-rwxr-xr-x 1 root root   1198 Mar  4  2017 tabucol.h
+-rwxr-xr-x 1 root root     89 Oct  4  2016 teste.c
+-rwxr-xr-x 1 root root 663552 Mar  3  2017 teste.txt
+-rwxr-xr-x 1 root root   2184 Oct  4  2016 util.c
+-rwxr-xr-x 1 root root   1320 Oct  4  2016 util.h
+root@1f8ef2af9fce:/app# apt-get update
+Ign:1 http://deb.debian.org/debian stretch InRelease
+Get:2 http://deb.debian.org/debian stretch-updates InRelease [91.0 kB]
+Get:3 http://deb.debian.org/debian stretch Release [118 kB]
+Get:4 http://deb.debian.org/debian stretch Release.gpg [2434 B]
+Get:5 http://security.debian.org stretch/updates InRelease [63.0 kB]
+Get:6 http://deb.debian.org/debian stretch-updates/main amd64 Packages [12.1 kB]
+Get:7 http://deb.debian.org/debian stretch/main amd64 Packages [9530 kB]
+Get:8 http://security.debian.org stretch/updates/main amd64 Packages [455 kB]
+Fetched 10.3 MB in 2s (4734 kB/s)
+Reading package lists... Done
+root@1f8ef2af9fce:/app# make--version
+bash: make--version: command not found
+root@1f8ef2af9fce:/app# make --version
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+root@1f8ef2af9fce:/app# make
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o color.o color.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o util.o util.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o colorant.o colorant.c
+colorant.c:237:13: warning: 'update_pheromone_trails_memoryOLD' defined but not used [-Wunused-function]
+ static void update_pheromone_trails_memoryOLD(void) {
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+colorant.c:130:13: warning: 'print_memory' defined but not used [-Wunused-function]
+ static void print_memory() {
+             ^~~~~~~~~~~~
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o tabucol.o tabucol.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o ant_fixed_k.o ant_fixed_k.c
+gcc -o colorant -pg -g -ggdb -Wall -O3 -DNRAND   color.o util.o colorant.o tabucol.o ant_fixed_k.o -lm
+rm *.o
+root@1f8ef2af9fce:/app# ls -la
+total 1059
+drwxr-xr-x 2 root root   4096 Mar 29 19:05 .
+drwxr-xr-x 1 root root   4096 Mar 29 19:05 ..
+-rwxr-xr-x 1 root root   5803 Mar  3  2017 ant_fixed_k.c
+-rwxr-xr-x 1 root root    512 Oct  4  2016 ant_fixed_k.h
+-rwxr-xr-x 1 root root  22459 Mar  5  2017 color.c
+-rwxr-xr-x 1 root root   4317 Mar  3  2017 color.h
+-rwxr-xr-x 1 root root  96272 Mar 29 19:05 colorant
+-rwxr-xr-x 1 root root  18296 Mar  7  2017 colorant.c
+-rwxr-xr-x 1 root root   4144 Mar  3  2017 colorant.h
+-rwxr-xr-x 1 root root   9848 Mar 22 15:23 gmon.out
+-rwxr-xr-x 1 root root 160613 Oct  4  2016 le450_15d.col
+-rwxr-xr-x 1 root root    220 Mar  4  2017 makefile
+-rwxr-xr-x 1 root root      0 Mar  3  2017 saida
+-rwxr-xr-x 1 root root    626 Oct  4  2016 seeds.sh
+-rwxr-xr-x 1 root root  31180 Oct  4  2016 seeds.txt
+-rwxr-xr-x 1 root root  18956 Mar  4  2017 tabucol.c
+-rwxr-xr-x 1 root root   1198 Mar  4  2017 tabucol.h
+-rwxr-xr-x 1 root root     89 Oct  4  2016 teste.c
+-rwxr-xr-x 1 root root 663552 Mar  3  2017 teste.txt
+-rwxr-xr-x 1 root root   2184 Oct  4  2016 util.c
+-rwxr-xr-x 1 root root   1320 Oct  4  2016 util.h
+root@1f8ef2af9fce:/app# date
+Thu Mar 29 19:05:50 UTC 2018
+root@1f8ef2af9fce:/app# ./colorant
+colorant    colorant.c  colorant.h
+root@1f8ef2af9fce:/app# ./colorant
+error: no input files
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col
+You need to set the stop criterion.
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col  -h
+Usage: ./colorant [options] <file>
+
+ColorAnt options
+        [ -a, --alpha                            ] <value>      Define alpha parameter as <value>. Default: 2.
+        [ -b, --beta                             ] <value>      Define beta parameter as <value>. Default: 8.
+        [ -r, --rho                              ] <value>      Define rho parameter as <value>. Default: 0.600000.
+        [ -A, --ants                             ] <value>      Define number of ants as <value>. Default: 200.
+        [ -R, --use_ants_ratio                   ]      Define number of ants as ratio of vertices. Default: FALSE.
+        [ -p, --pheromone-scheme                 ] <value>      Define the pheromone scheme. Default: 1.
+                                                        1: All ants + Best ant + Best colony.
+                                                        2: Best ant + Best colony
+                                                        3: Best ant + Best colony (gap).
+        [ -n, --change-phero-scheme-iterations   ] <value>      Define iterations as <value>. Default: 10 without improvement.
+   Memory Usage:
+        [ -m, --memory-size                      ] <value>      Define memory size as <value>. Default: 25.
+        [ -M, --use-memory-ratio                 ]      Define memory size as ratio of ants. Default: FALSE.
+        [ -d, --delta                            ] <value>      Define delta parameter as <value>. Default: 0.500000.
+   Pheromone Scheme 3:
+        [ -g, --gap                              ] <value>      Define gap parameter as <value>. Default: 10.
+   Try to reuse color:
+        [ -x, --x                                ] <value>      Define x parameter as <value>. Default: 1.000000.
+        [ -y, --y                                ] <value>      Define y parameter as <value>. Default: 2.000000.
+   Change alpha and beta:
+        [ -G, --gamma                            ] <value>      Define gamma parameter as <value>. Default: 0.400000.
+        [ -o, --omega                            ] <value>      Define omega parameter as <value>. Default: 0.200000.
+        [ -i, --iterations-alpha-beta            ] <value>      Define iterations parameter as <value>. Default: 25.
+
+Tabucol options
+        [ -t, --tabucol-cycles                   ] <value>      Define maximum number of cycles in local search as <value>. Default: 1000000.
+        [ -T, --tabucol-convergence-cycles       ] <value>      Define maximum number of local search cycles without improvement.Default: 10000.
+        [ -e, --reactive-scheme                  ]              Define a reactive scheme for tabu tenure. Default: dynamic scheme.
+        [ -N, --change-tabucol-scheme-iterations ] <value>      Define iterations as <value>. Default: 100.
+        [ -F, --diff-tabucol-scheme-iterations   ] <value>      Define iterations as <value>. Default: 1.
+        [ -u, --apply-tabucol-all-ants                 ]        Apply tabucol on all ants. Default: only on the best ant.
+
+Criterion Stopping
+        [ -c, --cycles                           ] <value>      Define number of cycles.
+        [ -E, --time                             ] <value>      Define time in seconds.
+        [ -Y, --convergence-cycles               ] <value>      Define maximum number of local search cycles without improvement.
+
+General options
+        [ -k, --colors                           ] <value>      Define promote iterations as <value>. Default: vertices.        [ -v, --verbose                          ]              Display informations during execution.
+        [ -V, --tabucol-verbose                  ]              Display informations during execution about local search.
+        [ -s, --seed                             ] <value>      Define <value> as the seed of rand function. Default: time
+        [ -f, --output-filename                  ] <value>      Define the output filename. Default: stdout.
+        [ -h, --help                             ]              Display this information.
+
+root@1f8ef2af9fce:/app#
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col  -h
+Usage: ./colorant [options] <file>
+
+ColorAnt options
+        [ -a, --alpha                            ] <value>      Define alpha parameter as <value>. Default: 2.
+        [ -b, --beta                             ] <value>      Define beta parameter as <value>. Default: 8.
+        [ -r, --rho                              ] <value>      Define rho parameter as <value>. Default: 0.600000.
+        [ -A, --ants                             ] <value>      Define number of ants as <value>. Default: 200.
+        [ -R, --use_ants_ratio                   ]      Define number of ants as ratio of vertices. Default: FALSE.
+        [ -p, --pheromone-scheme                 ] <value>      Define the pheromone scheme. Default: 1.
+                                                        1: All ants + Best ant + Best colony.
+                                                        2: Best ant + Best colony
+                                                        3: Best ant + Best colony (gap).
+        [ -n, --change-phero-scheme-iterations   ] <value>      Define iterations as <value>. Default: 10 without improvement.
+   Memory Usage:
+        [ -m, --memory-size                      ] <value>      Define memory size as <value>. Default: 25.
+        [ -M, --use-memory-ratio                 ]      Define memory size as ratio of ants. Default: FALSE.
+        [ -d, --delta                            ] <value>      Define delta parameter as <value>. Default: 0.500000.
+   Pheromone Scheme 3:
+        [ -g, --gap                              ] <value>      Define gap parameter as <value>. Default: 10.
+   Try to reuse color:
+        [ -x, --x                                ] <value>      Define x parameter as <value>. Default: 1.000000.
+        [ -y, --y                                ] <value>      Define y parameter as <value>. Default: 2.000000.
+   Change alpha and beta:
+        [ -G, --gamma                            ] <value>      Define gamma parameter as <value>. Default: 0.400000.
+        [ -o, --omega                            ] <value>      Define omega parameter as <value>. Default: 0.200000.
+        [ -i, --iterations-alpha-beta            ] <value>      Define iterations parameter as <value>. Default: 25.
+
+Tabucol options
+        [ -t, --tabucol-cycles                   ] <value>      Define maximum number of cycles in local search as <value>. Default: 1000000.
+        [ -T, --tabucol-convergence-cycles       ] <value>      Define maximum number of local search cycles without improvement.Default: 10000.
+        [ -e, --reactive-scheme                  ]              Define a reactive scheme for tabu tenure. Default: dynamic scheme.
+        [ -N, --change-tabucol-scheme-iterations ] <value>      Define iterations as <value>. Default: 100.
+        [ -F, --diff-tabucol-scheme-iterations   ] <value>      Define iterations as <value>. Default: 1.
+        [ -u, --apply-tabucol-all-ants                 ]        Apply tabucol on all ants. Default: only on the best ant.
+
+Criterion Stopping
+        [ -c, --cycles                           ] <value>      Define number of cycles.
+        [ -E, --time                             ] <value>      Define time in seconds.
+        [ -Y, --convergence-cycles               ] <value>      Define maximum number of local search cycles without improvement.
+
+General options
+        [ -k, --colors                           ] <value>      Define promote iterations as <value>. Default: vertices.
+        [ -v, --verbose                          ]              Display informations during execution.
+        [ -V, --tabucol-verbose                  ]              Display informations during execution about local search.
+        [ -s, --seed                             ] <value>      Define <value> as the seed of rand function. Default: time
+        [ -f, --output-filename                  ] <value>      Define the output filename. Default: stdout.
+        [ -h, --help                             ]              Display this information.
+
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c --time 30
+error: invalid argument. Use '-h'
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col --time 30
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Time...................................: 30.00
+  Seed...................................: 68647404339296 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.039748
+Spent Time.........................: 0.039747
+Spent time (ACO)...................: 0.039747
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.038364
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col --time 100
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Time...................................: 100.00
+  Seed...................................: 105072673501612 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.031438
+Spent Time.........................: 0.031437
+Spent time (ACO)...................: 0.031437
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.029700
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 2000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 2000
+  Seed...................................: 41942342298780 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.041827
+Spent Time.........................: 0.041826
+Spent time (ACO)...................: 0.041826
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.040317
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 2000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 2000
+  Seed...................................: 96893041446089 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.032282
+Spent Time.........................: 0.032156
+Spent time (ACO)...................: 0.032156
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.029328
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 2000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 2000
+  Seed...................................: 263086588094228 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.047468
+Spent Time.........................: 0.047466
+Spent time (ACO)...................: 0.047466
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.045372
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 2000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 2000
+  Seed...................................: 36285274185792 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.033558
+Spent Time.........................: 0.033558
+Spent time (ACO)...................: 0.033558
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.032137
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 2000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 2000
+  Seed...................................: 86227471000448 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.037524
+Spent Time.........................: 0.037523
+Spent time (ACO)...................: 0.037523
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.034181
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 2000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 2000
+  Seed...................................: 148144560948053 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.052060
+Spent Time.........................: 0.052059
+Spent time (ACO)...................: 0.052059
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.050636
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 2000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 2000
+  Seed...................................: 208741688763608 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.041395
+Spent Time.........................: 0.041394
+Spent time (ACO)...................: 0.041394
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.039910
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 200000000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 200000000
+  Seed...................................: 235579189432850 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.033378
+Spent Time.........................: 0.033378
+Spent time (ACO)...................: 0.033378
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.032002
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 200000000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 200000000
+  Seed...................................: 81818780932452 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.031728
+Spent Time.........................: 0.031727
+Spent time (ACO)...................: 0.031727
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.030371
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 20000000000000000000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 1000
+  Seed...................................: 274572730798112 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.037703
+Spent Time.........................: 0.037702
+Spent time (ACO)...................: 0.037702
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.036330
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app#
+root@1f8ef2af9fce:/app#
+root@1f8ef2af9fce:/app#
+root@1f8ef2af9fce:/app#
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 20000000000000000000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 1000
+  Seed...................................: 202006913381282 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.033191
+Spent Time.........................: 0.033191
+Spent time (ACO)...................: 0.033191
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.031759
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app#
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 20000000000000000000
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 1000
+  Seed...................................: 280016650853504 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.028407
+Spent Time.........................: 0.028404
+Spent time (ACO)...................: 0.028404
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.025762
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# ./colorant le450_15d.col -c 20000000000000000000exit
+-------------------------------------------------
+COLORANT
+-------------------------------------------------
+Parameters:
+  Alpha..................................: 2.00
+  Beta...................................: 8.00
+  Rho....................................: 0.60
+  Ants...................................: 200
+  Pheromone scheme.......................: All ants + Best ant + Best colony
+-------------------------------------------------
+TABUCOL
+-------------------------------------------------
+Parameters:
+  Iterations.............................: 1000000
+  Dynamic scheme for tabu tenure.
+  Apply tabu search only on the best ant.
+-------------------------------------------------
+GENERAL Options
+-------------------------------------------------
+  K......................................: 450
+  Cycles.................................: 1000
+  Seed...................................: 206155560908496 (nrand)
+-------------------------------------------------
+
+-------------------------------------------------
+SOLUTION:
+-------------------------------------------------
+No. of colors utilized.............: 450
+No. of conflicting edges...........: 0
+No. of conflicting vertices........: 0
+Real time..........................: 0.041265
+Spent Time.........................: 0.041264
+Spent time (ACO)...................: 0.041264
+Spent time (LS)....................: 0.000000
+Time to the best...................: 0.039282
+Total of cycles....................: 1
+Cycles to the best.................: 1
+Stop criterion.....................: 3
+-------------------------------------------------
+root@1f8ef2af9fce:/app# exit
+exit
+PS C:\Users\luis.alves> docker-compose up
+ERROR:
+        Can't find a suitable configuration file in this directory or any
+        parent. Are you in the right directory?
+
+        Supported filenames: docker-compose.yml, docker-compose.yaml
+
+PS C:\Users\luis.alves> dir
+
+
+    Diretório: C:\Users\luis.alves
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       21/12/2017     08:39                .android
+d-----       05/01/2018     17:58                .config
+d-----       21/12/2017     11:38                .docker
+d-----       09/01/2018     14:10                .eclipse
+d-----       10/01/2018     14:31                .gem
+d-----       21/12/2017     09:35                .gradle
+d-----       12/01/2018     14:51                .idea
+d-----       21/12/2017     08:38                .IdeaIC2017.3
+d-----       14/03/2018     09:08                .m2
+d-----       22/12/2017     09:46                .node-gyp
+d-----       21/02/2018     15:18                .p2
+d-----       20/03/2018     17:00                .sonar
+d-----       21/03/2018     08:28                .sonarlint
+d-----       08/01/2018     10:58                .ssh
+d-----       22/12/2017     08:16                .tooling
+d-----       21/12/2017     14:31                .vscode
+d-----       08/03/2018     10:33                .vue-templates
+d-r---       14/03/2018     18:09                3D Objects
+d-r---       14/03/2018     18:09                Contacts
+d-r---       20/03/2018     08:30                DB1 Global Software
+d-r---       29/03/2018     15:54                Desktop
+d-r---       29/03/2018     14:32                Documents
+d-r---       29/03/2018     15:54                Downloads
+d-----       08/01/2018     16:20                eclipse
+d-----       09/02/2018     13:39                eclipse-workspace
+d-r---       14/03/2018     18:09                Favorites
+d-----       09/02/2018     08:21                git-quick-stats
+d-r---       20/03/2018     08:30                Links
+d-r---       14/03/2018     18:09                Music
+d-r---       20/03/2018     08:30                OneDrive
+d-r---       14/03/2018     18:09                Pictures
+d-----       22/03/2018     08:11                projetos
+d-r---       14/03/2018     18:09                Saved Games
+d-r---       14/03/2018     18:09                Searches
+d-r---       14/03/2018     18:09                Videos
+-a----       06/03/2018     08:40          82201 .babel.json
+-a----       29/03/2018     13:58          29588 .bash_history
+-a----       10/01/2018     14:31            145 .gemrc
+-a----       06/03/2018     11:17           1272 .gitconfig
+-a----       27/03/2018     11:42             28 .lesshst
+-a----       22/12/2017     09:39             28 .minttyrc
+-a----       28/03/2018     18:09           2981 .node_repl_history
+-a----       08/03/2018     08:31          33998 .pdfbox.cache
+-a----       12/01/2018     09:23           9350 .v8flags.6.2.414.46-node.15.ff18ca805742e465be25d8fcebac5466.json
+-a----       29/03/2018     13:27          20637 .viminfo
+-a----       15/01/2018     09:03            121 .yarnrc
+-a----       04/01/2018     16:00            212 .yo-rc-global.json
+-a----       31/01/2018     17:24              4 a.html
+-a----       02/02/2018     09:31       49904309 consulta.xlsx
+-a----       27/12/2017     17:29            219 _netrc
+-a----       02/01/2018     17:42           4378 _viminfo
+
+
+PS C:\Users\luis.alves> cd c:
+PS C:\Users\luis.alves> cd .\Desktop\ultimo.colorant\
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up
+Building compiler
+Step 1/5 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/5 : WORKDIR /app
+Removing intermediate container 22292e7f1e7f
+ ---> a8b7c65e1692
+Step 3/5 : COPY ./execute.sh /execute.sh
+ ---> f31283b45d00
+Step 4/5 : RUN chmod +x /execute.sh
+ ---> Running in 407ac7b0c5ad
+Removing intermediate container 407ac7b0c5ad
+ ---> b34e5d1f2e04
+Step 5/5 : ENTRYPOINT execute.sh
+ ---> Running in f2dc56587aa0
+Removing intermediate container f2dc56587aa0
+ ---> 44bfbe9c148d
+Successfully built 44bfbe9c148d
+Successfully tagged ultimocolorant_compiler:latest
+WARNING: Image for service compiler was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Creating ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+compiler_1  | /bin/sh: 1: execute.sh: not found
+ultimocolorant_compiler_1 exited with code 127
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Building compiler
+Step 1/5 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/5 : WORKDIR /app
+ ---> Using cache
+ ---> a8b7c65e1692
+Step 3/5 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> f31283b45d00
+Step 4/5 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> b34e5d1f2e04
+Step 5/5 : ENTRYPOINT /execute.sh
+ ---> Running in 48bec9c99b62
+Removing intermediate container 48bec9c99b62
+ ---> ecf20cddbc20
+Successfully built ecf20cddbc20
+Successfully tagged ultimocolorant_compiler:latest
+Recreating ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+compiler_1  | /bin/sh: 1: /execute.sh: not found
+ultimocolorant_compiler_1 exited with code 127
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker image ls
+REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
+ultimocolorant_compiler    latest              ecf20cddbc20        22 seconds ago      1.64GB
+<none>                     <none>              44bfbe9c148d        47 seconds ago      1.64GB
+gcc                        latest              8357b3fcbe41        2 weeks ago         1.64GB
+luis/node-web-app          latest              2e6d3b7c90ef        2 months ago        679MB
+<none>                     <none>              11b0fbbf1471        2 months ago        679MB
+node                       carbon              b87c2ad8344d        2 months ago        676MB
+orwel84/ubuntu-16-mpi      latest              6f2c6810c76d        2 months ago        307MB
+mysql                      latest              7d83a47ab2d2        3 months ago        408MB
+debian                     latest              da653cee0545        3 months ago        100MB
+openjdk                    8-jre-alpine        a7441b26c41b        3 months ago        82MB
+swarm                      latest              59c0df55980b        4 months ago        15.8MB
+docker4w/nsenter-dockerd   latest              cae870735e91        5 months ago        187kB
+d4w/nsenter                latest              9e4f13a0901e        18 months ago       83.8kB
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker image ls
+REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
+ultimocolorant_compiler    latest              ecf20cddbc20        48 seconds ago       1.64GB
+<none>                     <none>              44bfbe9c148d        About a minute ago   1.64GB
+gcc                        latest              8357b3fcbe41        2 weeks ago          1.64GB
+luis/node-web-app          latest              2e6d3b7c90ef        2 months ago         679MB
+<none>                     <none>              11b0fbbf1471        2 months ago         679MB
+node                       carbon              b87c2ad8344d        2 months ago         676MB
+orwel84/ubuntu-16-mpi      latest              6f2c6810c76d        2 months ago         307MB
+mysql                      latest              7d83a47ab2d2        3 months ago         408MB
+debian                     latest              da653cee0545        3 months ago         100MB
+openjdk                    8-jre-alpine        a7441b26c41b        3 months ago         82MB
+swarm                      latest              59c0df55980b        4 months ago         15.8MB
+docker4w/nsenter-dockerd   latest              cae870735e91        5 months ago         187kB
+d4w/nsenter                latest              9e4f13a0901e        18 months ago        83.8kB
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+ERROR: The Compose file '.\docker-compose.yaml' is invalid because:
+Unsupported config option for compiler: 'image_name'
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker image ls
+REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
+ultimocolorant_compiler    latest              ecf20cddbc20        About a minute ago   1.64GB
+<none>                     <none>              44bfbe9c148d        About a minute ago   1.64GB
+gcc                        latest              8357b3fcbe41        2 weeks ago          1.64GB
+luis/node-web-app          latest              2e6d3b7c90ef        2 months ago         679MB
+<none>                     <none>              11b0fbbf1471        2 months ago         679MB
+node                       carbon              b87c2ad8344d        2 months ago         676MB
+orwel84/ubuntu-16-mpi      latest              6f2c6810c76d        2 months ago         307MB
+mysql                      latest              7d83a47ab2d2        3 months ago         408MB
+debian                     latest              da653cee0545        3 months ago         100MB
+openjdk                    8-jre-alpine        a7441b26c41b        3 months ago         82MB
+swarm                      latest              59c0df55980b        4 months ago         15.8MB
+docker4w/nsenter-dockerd   latest              cae870735e91        5 months ago         187kB
+d4w/nsenter                latest              9e4f13a0901e        18 months ago        83.8kB
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker run -it ultimocolorant_compiler bash
+bash: 1: bash: /execute.sh: not found
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Building compiler
+Step 1/5 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/5 : COPY ./execute.sh /execute.sh
+ ---> f53c7f28e064
+Step 3/5 : RUN chmod +x /execute.sh
+ ---> Running in 7ec0317a0ac0
+Removing intermediate container 7ec0317a0ac0
+ ---> ea2a9ebbe729
+Step 4/5 : WORKDIR /app
+Removing intermediate container 9d985541cc71
+ ---> e5029bb9795e
+Step 5/5 : ENTRYPOINT /execute.sh
+ ---> Running in 808a7c745b04
+Removing intermediate container 808a7c745b04
+ ---> 55c63818571d
+Successfully built 55c63818571d
+Successfully tagged ultimocolorant_compiler:latest
+Recreating ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+compiler_1  | /bin/sh: 1: /execute.sh: not found
+ultimocolorant_compiler_1 exited with code 127
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> f53c7f28e064
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> ea2a9ebbe729
+Step 4/4 : WORKDIR /app
+ ---> Using cache
+ ---> e5029bb9795e
+Successfully built e5029bb9795e
+Successfully tagged ultimocolorant_compiler:latest
+Recreating ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+ultimocolorant_compiler_1 exited with code 0
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker run -it ultimocolorant_compiler bash
+root@3ba5d78f30d5:/app# ls -la
+total 8
+drwxr-xr-x 2 root root 4096 Mar 29 19:19 .
+drwxr-xr-x 1 root root 4096 Mar 29 19:20 ..
+root@3ba5d78f30d5:/app# ls -la /
+total 80
+drwxr-xr-x   1 root root 4096 Mar 29 19:20 .
+drwxr-xr-x   1 root root 4096 Mar 29 19:20 ..
+-rwxr-xr-x   1 root root    0 Mar 29 19:20 .dockerenv
+drwxr-xr-x   2 root root 4096 Mar 29 19:19 app
+drwxr-xr-x   1 root root 4096 Mar 13 23:57 bin
+drwxr-xr-x   2 root root 4096 Feb 23 23:23 boot
+drwxr-xr-x   5 root root  360 Mar 29 19:20 dev
+drwxr-xr-x   1 root root 4096 Mar 29 19:20 etc
+-rwxr-xr-x   1 root root   72 Mar 29 19:15 execute.sh
+drwxr-xr-x   2 root root 4096 Feb 23 23:23 home
+drwxr-xr-x   1 root root 4096 Mar 13 23:57 lib
+drwxr-xr-x   2 root root 4096 Mar 12 00:00 lib64
+drwxr-xr-x   2 root root 4096 Mar 12 00:00 media
+drwxr-xr-x   2 root root 4096 Mar 12 00:00 mnt
+drwxr-xr-x   2 root root 4096 Mar 12 00:00 opt
+dr-xr-xr-x 131 root root    0 Mar 29 19:20 proc
+drwx------   1 root root 4096 Mar 15 02:49 root
+drwxr-xr-x   4 root root 4096 Mar 12 00:00 run
+drwxr-xr-x   1 root root 4096 Mar 13 23:56 sbin
+drwxr-xr-x   2 root root 4096 Mar 12 00:00 srv
+dr-xr-xr-x  13 root root    0 Mar 29 19:20 sys
+drwxrwxrwt   1 root root 4096 Mar 15 03:55 tmp
+drwxr-xr-x   1 root root 4096 Mar 12 00:00 usr
+drwxr-xr-x   1 root root 4096 Mar 12 00:00 var
+root@3ba5d78f30d5:/app# /execute.sh
+bash: /execute.sh: /bin/bash^M: bad interpreter: No such file or directory
+root@3ba5d78f30d5:/app# ./execute.sh
+bash: ./execute.sh: No such file or directory
+root@3ba5d78f30d5:/app# sh /execute.sh
+: not found: 2: /execute.sh:
+/execute.sh: 3: cd: can't cd to /app
+: not found: 4: /execute.sh: make
+/execute.sh: 5: /execute.sh: colorant: not found
+root@3ba5d78f30d5:/app# cd /
+root@3ba5d78f30d5:/# /execute.sh
+bash: /execute.sh: /bin/bash^M: bad interpreter: No such file or directory
+root@3ba5d78f30d5:/# /bin/bash
+.dockerenv  dev/        lib/        opt/        sbin/       usr/
+app/        etc/        lib64/      proc/       srv/        var/
+bin/        execute.sh  media/      root/       sys/
+boot/       home/       mnt/        run/        tmp/
+root@3ba5d78f30d5:/# /bin/bash
+root@3ba5d78f30d5:/# exit
+exit
+root@3ba5d78f30d5:/# cat execute.sh
+#!/bin/bash
+
+cd /app
+make
+colorant ./colorant le450_15d.col -c 20000root@3ba5d78f30d5:/#
+root@3ba5d78f30d5:/# sh execute.sh
+: not found 2: execute.sh:
+execute.sh: 3: cd: can't cd to /app
+: not found 4: execute.sh: make
+execute.sh: 5: execute.sh: colorant: not found
+root@3ba5d78f30d5:/# chmod +x execute.sh
+root@3ba5d78f30d5:/# sh execute.sh
+: not found 2: execute.sh:
+execute.sh: 3: cd: can't cd to /app
+: not found 4: execute.sh: make
+execute.sh: 5: execute.sh: colorant: not found
+root@3ba5d78f30d5:/# cd /app
+root@3ba5d78f30d5:/app# make
+make: *** No targets specified and no makefile found.  Stop.
+root@3ba5d78f30d5:/app# make /app
+make: Nothing to be done for '/app'.
+root@3ba5d78f30d5:/app# /execute.sh
+bash: /execute.sh: /bin/bash^M: bad interpreter: No such file or directory
+root@3ba5d78f30d5:/app# nano[
+> ^C
+root@3ba5d78f30d5:/app# nano
+bash: nano: command not found
+root@3ba5d78f30d5:/app# vim
+bash: vim: command not found
+root@3ba5d78f30d5:/app# apt-get install
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+root@3ba5d78f30d5:/app# apt-get update
+Ign:1 http://deb.debian.org/debian stretch InRelease
+Get:2 http://deb.debian.org/debian stretch-updates InRelease [91.0 kB]
+Get:3 http://security.debian.org stretch/updates InRelease [63.0 kB]
+Get:4 http://deb.debian.org/debian stretch Release [118 kB]
+Get:5 http://deb.debian.org/debian stretch Release.gpg [2434 B]
+Get:6 http://deb.debian.org/debian stretch-updates/main amd64 Packages [12.1 kB]
+Get:7 http://security.debian.org stretch/updates/main amd64 Packages [455 kB]
+Get:8 http://deb.debian.org/debian stretch/main amd64 Packages [9530 kB]
+Fetched 10.3 MB in 2s (5038 kB/s)
+Reading package lists... Done
+root@3ba5d78f30d5:/app# apt-get install -y vim
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  libgpm2 vim-common vim-runtime xxd
+Suggested packages:
+  gpm ctags vim-doc vim-scripts
+The following NEW packages will be installed:
+  libgpm2 vim vim-common vim-runtime xxd
+0 upgraded, 5 newly installed, 0 to remove and 9 not upgraded.
+Need to get 6766 kB of archives.
+After this operation, 31.2 MB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian stretch/main amd64 xxd amd64 2:8.0.0197-4+deb9u1 [132 kB]
+Get:2 http://deb.debian.org/debian stretch/main amd64 vim-common all 2:8.0.0197-4+deb9u1 [159 kB]
+Get:3 http://deb.debian.org/debian stretch/main amd64 libgpm2 amd64 1.20.4-6.2+b1 [34.2 kB]
+Get:4 http://deb.debian.org/debian stretch/main amd64 vim-runtime all 2:8.0.0197-4+deb9u1 [5407 kB]
+Get:5 http://deb.debian.org/debian stretch/main amd64 vim amd64 2:8.0.0197-4+deb9u1 [1034 kB]
+Fetched 6766 kB in 0s (8309 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package xxd.
+(Reading database ... 29439 files and directories currently installed.)
+Preparing to unpack .../xxd_2%3a8.0.0197-4+deb9u1_amd64.deb ...
+Unpacking xxd (2:8.0.0197-4+deb9u1) ...
+Selecting previously unselected package vim-common.
+Preparing to unpack .../vim-common_2%3a8.0.0197-4+deb9u1_all.deb ...
+Unpacking vim-common (2:8.0.0197-4+deb9u1) ...
+Selecting previously unselected package libgpm2:amd64.
+Preparing to unpack .../libgpm2_1.20.4-6.2+b1_amd64.deb ...
+Unpacking libgpm2:amd64 (1.20.4-6.2+b1) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a8.0.0197-4+deb9u1_all.deb ...
+Adding 'diversion of /usr/share/vim/vim80/doc/help.txt to /usr/share/vim/vim80/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim80/doc/tags to /usr/share/vim/vim80/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.0.0197-4+deb9u1) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a8.0.0197-4+deb9u1_amd64.deb ...
+Unpacking vim (2:8.0.0197-4+deb9u1) ...
+Processing triggers for mime-support (3.60) ...
+Setting up xxd (2:8.0.0197-4+deb9u1) ...
+Setting up libgpm2:amd64 (1.20.4-6.2+b1) ...
+Processing triggers for libc-bin (2.24-11+deb9u3) ...
+Setting up vim-common (2:8.0.0197-4+deb9u1) ...
+Setting up vim-runtime (2:8.0.0197-4+deb9u1) ...
+Processing triggers for hicolor-icon-theme (0.15-1) ...
+Setting up vim (2:8.0.0197-4+deb9u1) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto modeupdate-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto modeupdate-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+root@3ba5d78f30d5:/app#
+root@3ba5d78f30d5:/app# vim
+root@3ba5d78f30d5:/app# vim ../execute.sh
+root@3ba5d78f30d5:/app# xit
+bash: xit: command not found
+root@3ba5d78f30d5:/app# exit
+exit
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker run -it ultimocolorant_compiler bash
+root@7a57ca7f628d:/app# exit
+exit
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /execute.sh
+ ---> 554b2894bf31
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Running in c65782485268
+Removing intermediate container c65782485268
+ ---> 53b8d007b9e5
+Step 4/4 : WORKDIR /app
+Removing intermediate container c9dbb26ad372
+ ---> 391e1efeb5f9
+Successfully built 391e1efeb5f9
+Successfully tagged ultimocolorant_compiler:latest
+Recreating ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+ultimocolorant_compiler_1 exited with code 0
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> 554b2894bf31
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> 53b8d007b9e5
+Step 4/4 : ENTRYPOINT /execute.sh
+ ---> Running in f01fceb61ab0
+Removing intermediate container f01fceb61ab0
+ ---> 6189e9c2487e
+Successfully built 6189e9c2487e
+Successfully tagged ultimocolorant_compiler:latest
+Recreating ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+compiler_1  | /bin/sh: 1: /execute.sh: not found
+ultimocolorant_compiler_1 exited with code 127
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> 554b2894bf31
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> 53b8d007b9e5
+Step 4/4 : ENTRYPOINT /execute.sh
+ ---> Using cache
+ ---> 6189e9c2487e
+Successfully built 6189e9c2487e
+Successfully tagged ultimocolorant_compiler:latest
+Starting ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+compiler_1  | /bin/sh: 1: /execute.sh: not found
+ultimocolorant_compiler_1 exited with code 127
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> 554b2894bf31
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> 53b8d007b9e5
+Step 4/4 : ENTRYPOINT ["make /app && /app/colorant"]
+ ---> Running in f7997473b64a
+Removing intermediate container f7997473b64a
+ ---> 1f8e86d34cfe
+Successfully built 1f8e86d34cfe
+Successfully tagged ultimocolorant_compiler:latest
+Recreating ultimocolorant_compiler_1 ... error
+
+ERROR: for ultimocolorant_compiler_1  Cannot start service compiler: OCI runtime create failed: container_linux.go:296: starting container process caused "exec: \"make /app && /app/colorant\": stat make /app && /app/colorant: no such file or directory": unknown
+
+ERROR: for compiler  Cannot start service compiler: OCI runtime create failed: container_linux.go:296: starting container process caused "exec: \"make /app && /app/colorant\": stat make /app && /app/colorant: no such file or directory": unknown
+ERROR: Encountered errors while bringing up the project.
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Removing ultimocolorant_compiler_1
+Building compiler
+Step 1/3 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/3 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> 554b2894bf31
+Step 3/3 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> 53b8d007b9e5
+Successfully built 53b8d007b9e5
+Successfully tagged ultimocolorant_compiler:latest
+Recreating 28922c72a332_ultimocolorant_compiler_1 ... error
+
+ERROR: for 28922c72a332_ultimocolorant_compiler_1  Cannot start service compiler: OCI runtime create failed: container_linux.go:296: starting container process caused "exec: \"make /app\": stat make /app: no such file or directory": unknown
+
+ERROR: for compiler  Cannot start service compiler: OCI runtime create failed: container_linux.go:296: starting container process caused "exec: \"make /app\": stat make /app: no such file or directory": unknown
+ERROR: Encountered errors while bringing up the project.
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build
+Removing ultimocolorant_compiler_1
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> 554b2894bf31
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> 53b8d007b9e5
+Step 4/4 : ENTRYPOINT tail -f /dev/null
+ ---> Running in 8b8dfc36cd33
+Removing intermediate container 8b8dfc36cd33
+ ---> 5646c1665e7f
+Successfully built 5646c1665e7f
+Successfully tagged ultimocolorant_compiler:latest
+Recreating 28922c72a332_28922c72a332_ultimocolorant_compiler_1 ... done
+Attaching to ultimocolorant_compiler_1
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping ultimocolorant_compiler_1 ... done
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /execute.sh
+ ---> Using cache
+ ---> 554b2894bf31
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Using cache
+ ---> 53b8d007b9e5
+Step 4/4 : ENTRYPOINT tail -f /dev/null
+ ---> Using cache
+ ---> 5646c1665e7f
+Successfully built 5646c1665e7f
+Successfully tagged ultimocolorant_compiler:latest
+Starting ultimocolorant_compiler_1 ... done
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler execute.sh
+OCI runtime exec failed: exec failed: container_linux.go:296: starting container process caused "exec: \"execute.sh\": executable file not found in $PATH": unknown
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler /execute.sh
+OCI runtime exec failed: exec failed: container_linux.go:296: starting container process caused "no such file or directory": unknown
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler bash
+root@cc71ed422a0b:/# echo $path
+
+root@cc71ed422a0b:/# echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+root@cc71ed422a0b:/# exit
+exit
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose down
+Stopping ultimocolorant_compiler_1 ... done
+Removing ultimocolorant_compiler_1 ... done
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /usr/local/bin/execute
+ ---> 1240c1825d38
+Step 3/4 : RUN chmod +x /execute.sh
+ ---> Running in 5a665d418463
+chmod: cannot access '/execute.sh': No such file or directory
+ERROR: Service 'compiler' failed to build: The command '/bin/sh -c chmod +x /execute.sh' returned a non-zero code: 1
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+Building compiler
+Step 1/4 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/4 : COPY ./execute.sh /usr/local/bin/execute
+ ---> Using cache
+ ---> 1240c1825d38
+Step 3/4 : RUN chmod +x /usr/local/bin/execute
+ ---> Running in ef64645f2456
+Removing intermediate container ef64645f2456
+ ---> 9194f82e655e
+Step 4/4 : ENTRYPOINT tail -f /dev/null
+ ---> Running in 2fa656912c1c
+Removing intermediate container 2fa656912c1c
+ ---> 9656b9455d91
+Successfully built 9656b9455d91
+Successfully tagged ultimocolorant_compiler:latest
+Creating ultimocolorant_compiler_1 ... done
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compile execute
+ERROR: No such service: compile
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler execute
+OCI runtime exec failed: exec failed: container_linux.go:296: starting container process caused "no such file or directory": unknown
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler bash
+^[root@8fbebca8c1fd:/#
+root@8fbebca8c1fd:/#
+root@8fbebca8c1fd:/#
+root@8fbebca8c1fd:/#
+root@8fbebca8c1fd:/# execute
+bash: /usr/local/bin/execute: /bin/bash^M: bad interpreter: No such file or directory
+root@8fbebca8c1fd:/# ls -la /app
+total 1060
+drwxr-xr-x 2 root root   4096 Mar 29 19:15 .
+drwxr-xr-x 1 root root   4096 Mar 29 19:34 ..
+-rwxr-xr-x 1 root root    121 Mar 29 19:33 Dockerfile
+-rwxr-xr-x 1 root root   5803 Mar  3  2017 ant_fixed_k.c
+-rwxr-xr-x 1 root root    512 Oct  4  2016 ant_fixed_k.h
+-rwxr-xr-x 1 root root  22459 Mar  5  2017 color.c
+-rwxr-xr-x 1 root root   4317 Mar  3  2017 color.h
+-rwxr-xr-x 1 root root  96272 Mar 29 19:05 colorant
+-rwxr-xr-x 1 root root  18296 Mar  7  2017 colorant.c
+-rwxr-xr-x 1 root root   4144 Mar  3  2017 colorant.h
+-rwxr-xr-x 1 root root     56 Mar 29 19:30 docker-compose.yaml
+-rwxr-xr-x 1 root root     76 Mar 29 19:24 execute.sh
+-rwxr-xr-x 1 root root  10096 Mar 29 19:16 gmon.out
+-rwxr-xr-x 1 root root 160613 Oct  4  2016 le450_15d.col
+-rwxr-xr-x 1 root root    220 Mar  4  2017 makefile
+-rwxr-xr-x 1 root root      0 Mar  3  2017 saida
+-rwxr-xr-x 1 root root    626 Oct  4  2016 seeds.sh
+-rwxr-xr-x 1 root root  31180 Oct  4  2016 seeds.txt
+-rwxr-xr-x 1 root root  18956 Mar  4  2017 tabucol.c
+-rwxr-xr-x 1 root root   1198 Mar  4  2017 tabucol.h
+-rwxr-xr-x 1 root root     89 Oct  4  2016 teste.c
+-rwxr-xr-x 1 root root 663552 Mar  3  2017 teste.txt
+-rwxr-xr-x 1 root root   2184 Oct  4  2016 util.c
+-rwxr-xr-x 1 root root   1320 Oct  4  2016 util.h
+root@8fbebca8c1fd:/# ake /app
+bash: ake: command not found
+root@8fbebca8c1fd:/# make /app
+make: Nothing to be done for '/app'.
+root@8fbebca8c1fd:/# cd /app
+root@8fbebca8c1fd:/app# ls -la
+total 1060
+drwxr-xr-x 2 root root   4096 Mar 29 19:15 .
+drwxr-xr-x 1 root root   4096 Mar 29 19:34 ..
+-rwxr-xr-x 1 root root    121 Mar 29 19:33 Dockerfile
+-rwxr-xr-x 1 root root   5803 Mar  3  2017 ant_fixed_k.c
+-rwxr-xr-x 1 root root    512 Oct  4  2016 ant_fixed_k.h
+-rwxr-xr-x 1 root root  22459 Mar  5  2017 color.c
+-rwxr-xr-x 1 root root   4317 Mar  3  2017 color.h
+-rwxr-xr-x 1 root root  96272 Mar 29 19:05 colorant
+-rwxr-xr-x 1 root root  18296 Mar  7  2017 colorant.c
+-rwxr-xr-x 1 root root   4144 Mar  3  2017 colorant.h
+-rwxr-xr-x 1 root root     56 Mar 29 19:30 docker-compose.yaml
+-rwxr-xr-x 1 root root     76 Mar 29 19:24 execute.sh
+-rwxr-xr-x 1 root root  10096 Mar 29 19:16 gmon.out
+-rwxr-xr-x 1 root root 160613 Oct  4  2016 le450_15d.col
+-rwxr-xr-x 1 root root    220 Mar  4  2017 makefile
+-rwxr-xr-x 1 root root      0 Mar  3  2017 saida
+-rwxr-xr-x 1 root root    626 Oct  4  2016 seeds.sh
+-rwxr-xr-x 1 root root  31180 Oct  4  2016 seeds.txt
+-rwxr-xr-x 1 root root  18956 Mar  4  2017 tabucol.c
+-rwxr-xr-x 1 root root   1198 Mar  4  2017 tabucol.h
+-rwxr-xr-x 1 root root     89 Oct  4  2016 teste.c
+-rwxr-xr-x 1 root root 663552 Mar  3  2017 teste.txt
+-rwxr-xr-x 1 root root   2184 Oct  4  2016 util.c
+-rwxr-xr-x 1 root root   1320 Oct  4  2016 util.h
+root@8fbebca8c1fd:/app# make
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o color.o color.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o util.o util.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o colorant.o colorant.c
+colorant.c:237:13: warning: 'update_pheromone_trails_memoryOLD' defined but not used
+-Wunused-function]
+ static void update_pheromone_trails_memoryOLD(void) {
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+colorant.c:130:13: warning: 'print_memory' defined but not used [-Wunused-function]
+ static void print_memory() {
+             ^~~~~~~~~~~~
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o tabucol.o tabucol.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o ant_fixed_k.o ant_fixed_k.c
+gcc -o colorant -pg -g -ggdb -Wall -O3 -DNRAND   color.o util.o colorant.o tabucol.o ant_fixed_k.o -lm
+rm *.o
+root@8fbebca8c1fd:/app# xit
+bash: xit: command not found
+root@8fbebca8c1fd:/app# exit
+exit
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose up --build -d
+Building compiler
+Step 1/3 : FROM gcc
+ ---> 8357b3fcbe41
+Step 2/3 : WORKDIR /app
+ ---> Using cache
+ ---> a8b7c65e1692
+Step 3/3 : ENTRYPOINT tail -f /dev/null
+ ---> Running in 8c950719a9c9
+Removing intermediate container 8c950719a9c9
+ ---> af89ad6aa61b
+Successfully built af89ad6aa61b
+Successfully tagged ultimocolorant_compiler:latest
+Recreating ultimocolorant_compiler_1 ... done
+PS C:\Users\luis.alves\Desktop\ultimo.colorant>
+PS C:\Users\luis.alves\Desktop\ultimo.colorant>
+PS C:\Users\luis.alves\Desktop\ultimo.colorant>
+PS C:\Users\luis.alves\Desktop\ultimo.colorant>
+PS C:\Users\luis.alves\Desktop\ultimo.colorant>
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose exec compiler bash
+root@e1aa0ee98dca:/app# make
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o color.o color.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o util.o util.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o colorant.o colorant.c
+colorant.c:237:13: warning: 'update_pheromone_trails_memoryOLD' defined but not used
+-Wunused-function]
+ static void update_pheromone_trails_memoryOLD(void) {
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+colorant.c:130:13: warning: 'print_memory' defined but not used [-Wunused-function]
+ static void print_memory() {
+             ^~~~~~~~~~~~
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o tabucol.o tabucol.c
+gcc -pg -g -ggdb -Wall -O3 -DNRAND     -c -o ant_fixed_k.o ant_fixed_k.c
+gcc -o colorant -pg -g -ggdb -Wall -O3 -DNRAND   color.o util.o colorant.o tabucol.o ant_fixed_k.o -lm
+rm *.o
+root@e1aa0ee98dca:/app# exit
+exit
+PS C:\Users\luis.alves\Desktop\ultimo.colorant> docker-compose down
+Stopping ultimocolorant_compiler_1 ... done
+Removing ultimocolorant_compiler_1 ... done
+PS C:\Users\luis.alves\Desktop\ultimo.colorant>

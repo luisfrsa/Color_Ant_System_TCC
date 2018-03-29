@@ -1,0 +1,15 @@
+docker run -it -v /c/Users/luis.alves/Desktop/ultimo.colorant:/app -w /app gcc bash 
+    - cria imagem do docker  (-v para compartilhar disco)
+
+docker-compose up --build -d       
+    - inicia container
+
+docker-compose exec compiler bash
+    - entra no container com o bash (compiler vem do yaml)
+
+    dentro do container bash
+        - make
+        - gcc ....
+        - exit
+        
+docker-compose down

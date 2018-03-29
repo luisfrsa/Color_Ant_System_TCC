@@ -1,0 +1,4 @@
+compiler:
+    build: .
+    volumes:
+        - ./:/app
